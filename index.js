@@ -10,10 +10,10 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Hello World!'));
 
 // obtener productos de la base de datos
-app.get('/', async (req, res) => {
+app.get('/productos', async (req, res) => {
   const prisma = new PrismaClient();
   const productos = await prisma.productos.findMany();
   res.send(productos);
